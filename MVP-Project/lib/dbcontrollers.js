@@ -21,5 +21,5 @@ const axios = require('axios');
   }
 
   exports.getData = (username) =>{
-    newVid.find({username: username})
+    newVid.find({username: username}).exec(cb)
   }
