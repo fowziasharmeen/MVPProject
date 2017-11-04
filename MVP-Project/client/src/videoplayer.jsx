@@ -12,19 +12,19 @@ import React from 'react';
 //   </div>)
 // }
 
-const videoPlayer =(props)=>{
+const videoPlayer =({video, addvideo})=>{
 
   return (
     <div>
       <div>
       <h2>Play video here.</h2>
-      <iframe src={'https://www.youtube.com/watch?v=CAMWdvo71ls'}></iframe>
+      <iframe src={'https://www.youtube.com/embed/${video.id.videoId}'}></iframe>
     </div>
 
     <div>
-      <button addVideo={props.addVideo(props.video)}>Add to playlist</button>
-      <h3>{props.video.title}</h3>
-      <h4>{props.video.desc}</h4>
+      <button onCLick={() => props.addvideo(video)}>Add to playlist</button>
+      <h3>{video.title}</h3>
+      <h4>{video.description}</h4>
     </div>
   </div>
 )

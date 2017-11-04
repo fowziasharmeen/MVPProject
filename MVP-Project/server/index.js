@@ -3,7 +3,7 @@ const path = require('path');
 const parser = require('body-parser');
 const request = require('request');
 const db = require('../db.js');
-const dbfxns = require('../lib/dbcontrollers.js');
+const dbcontrollers = require('../lib/dbcontrollers.js');
 
 const app = express();
 
@@ -20,13 +20,15 @@ app.get('/', function(req, res){
 
 
 // POST from search at app
-// app.post('/', function(req, res){
-//   //server grabs body and send GET request to
-//   res.send('posted');
-// })
+app.post('/', function(req, res){
+  var username = req.body.username
+
+  dbcontrollers.saveData(username);
+  res.send('posted');
+})
 //GET request for saved playlist, server also GET req to database
 app.get('/', function(req, res){
-    dbfxns.saveData();
+    //
   res.json('got it');
 })
 

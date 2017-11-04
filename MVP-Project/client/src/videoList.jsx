@@ -1,13 +1,13 @@
 import React from 'react';
 import VideoEntry from './videoEntry.jsx';
 
-  const videoList=(props)=>(
-  <div>
-    <p>this is props: {props}</p>
-    {props.videos.map((video)=> {
-      return <VideoEntry video={video} changeVideo={props.changeVideo}/>
-    })}
-   </div>)
+  const videoList=({videos, selectVideo})=>
+
+  (<div className='vertical'>
+    {videos.map(video=>
+      <VideoEntry video={video} selectvideo={selectVideo}/>
+    )}
+  </div>);
 
 
 

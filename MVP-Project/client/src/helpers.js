@@ -1,20 +1,25 @@
 import axios from 'axios';
+import youtubeAPIkey from '../env/config.js'
+
 // import searchYouTube from 'youtube-api-search';
 
-searchYouTube(query, callback){
-  var params ={
-    key: API_KEY
-    part: 'snippet'
+const searchYouTube = function(query, callback) {
+  console.log('working at youtubeSearch', callback.toString())
+  var params = {
+    key: youtubeAPIkey,
+    part: 'snippet',
     q: query,
-    maxResults: 10,
+    maxResults: 5,
     type:'video',
     videoEmbeddable: 'true'
 
   }
 
-  axios.get('url', params);
+  axios.get('https://www.googleapis.com/youtube/v3/search', {params: params})
+  .then(({data}) =>callback({data}))
+  .catch((err)=> { console.log('error', err)});
 };
 
 
 
-export default searchHelpers;
+export default searchYouTube;

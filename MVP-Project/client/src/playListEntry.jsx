@@ -1,6 +1,6 @@
 import React from 'react';
 
-const videoEntry =({video, selectvideo})=>(
+const playListEntry =({video, selectvideo})=>(
   <div>
 
       <div>
@@ -14,4 +14,4 @@ const videoEntry =({video, selectvideo})=>(
   </div>
   )
 
-export default videoEntry
+export default playListEntry
