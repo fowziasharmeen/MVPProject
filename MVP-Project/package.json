@@ -19,7 +19,8 @@
     "mongoose": "^4.13.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "youtube-search-api-with-axios": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

@@ -1,3 +1,4 @@
+const mongoose= require('mongoose')
 const model = require('../model/video.js');
 const db = require('../db.js');
 const axios = require('axios');
@@ -11,10 +12,14 @@ const axios = require('axios');
       desc: 'Awesome',
     }, {timestamps:true});
 
-    savedVideo.save(function(err){
+    newVid.save(function(err){
       if(err){
         console.log('error', err)
       }
       console.log('saved to database')
     })
+  }
+
+  exports.getData = (username) =>{
+    newVid.find({username: username})
   }
