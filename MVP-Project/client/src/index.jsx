@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 // // import searchYouTube from 'youtube-api-search';
 import Search from './Search.jsx'
+import VideoList from './videoList.jsx'
+import VideoPlayer from './videoList.jsx'
 // import searchHelpers from './helpers.js'
 
 //
@@ -10,7 +12,8 @@ class App extends React.Component{
   constructor (props){
     super(props);
     this.state= {
-        videoCollection: [],
+        videoList: [{ "username" : "bob", "thumbnail" : "String", "video_url" : "https://www.youtube.com/watch?v=CAMWdvo71ls", "title" : "Tout Les Memes", "desc" : "Awesome" },
+{ "username" : "jane", "thumbnail" : "String", "video_url" : "https://www.youtube.com/watch?v=CAMWdvo71ls", "title" : "Tout Les Memes", "desc" : "Awesome" }],
         playlist: [],
         currentVideo: 'https://www.youtube.com/watch?v=CAMWdvo71ls'
     };
@@ -23,9 +26,10 @@ class App extends React.Component{
   render(){
     return (
        <div>
-    
+
         <Search onSearch={this.search}/>
-        {/* <VideoList onSearch={this.state.videoCollection}/> */}
+        <VideoList videos={this.state.videoList}/>
+        <VideoPlayer currentVideo={this.state.currentVideo}/>
       </div>)
     }
   }
